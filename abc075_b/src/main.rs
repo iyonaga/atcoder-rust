@@ -89,8 +89,16 @@ fn solve(src: &str) -> String {
 
     let mut v = v;
 
-    let dy = [-1, -1, -1, 0, 0,  1, 1, 1];
-    let dx = [-1, 0, 1, -1, 1, -1, 0, 1];
+    let d = [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
+    ];
 
     for i in 0..h {
         for j in 0..w {
@@ -100,9 +108,9 @@ fn solve(src: &str) -> String {
 
             let mut count = 0;
 
-            for d in 0..8 {
-                let ni = i + dy[d];
-                let nj = j + dx[d];
+            for &(dx, dy) in d.iter() {
+                let ni = i + dy;
+                let nj = j + dx;
 
                 if ni < 0 || h <= ni {
                     continue;
