@@ -94,11 +94,9 @@ fn solve(src: &str) -> String {
         if count >= n {
             ans = -1;
             break;
-            // break (-1).to_string();
         }
 
         if v[i] == 2 {
-            // break (count as isize + 1).to_string();
             ans = count as isize + 1;
             break;
         }
